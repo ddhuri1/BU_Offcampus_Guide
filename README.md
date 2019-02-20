@@ -5,7 +5,8 @@ trying to know more about off-campus housing and stay in Binghamton. Our aim is 
 quick access to information that the students need while in Binghamton, without much hassle and wasting time in browsing 
 through multiple websites. 
 
-Initial Contributors:
+# Initial Contributors
+
 1] Devina Sachin Dhuri
 2] Purva Thakkar
 3]Abhijeet Mahajan

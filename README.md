@@ -8,11 +8,17 @@ through multiple websites.
 # Initial Contributors
 
 1] Devina Sachin Dhuri
+
 2] Purva Thakkar
+
 3]Abhijeet Mahajan
+
 4] Scott Mason
+
 5] Michael Quinn
+
 6] Johan Ferreras
+
 
 
 

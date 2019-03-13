@@ -1,0 +1,13 @@
+%h2 Login
+
+= form_tag , :method => :put do
+    
+    =label :account, :username, 'Username/Email'
+    = text_field :account, 'username/email'
+    
+    =label :account, :password, 'Password'
+    = text_field :account, 'password'
+    
+    = submit_tag 'Login'
+    
+= link_to 'Back', previous_page

@@ -16,6 +16,13 @@ The BU Off-Campus Guide acts as an informative and useful medium for students (c
 
 6] Johan Ferreras
 
-
+# Minimum Viable Product:
+➢ Registration and login page. 
+➢ Dashboard to make it user friendly.
+➢ Off campus Housing.
+➢ Travel.
+➢ Necessities/Essentials.
+➢ FAQ.
+➢ Contact Us
 
 

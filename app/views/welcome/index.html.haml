@@ -1,0 +1,37 @@
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %link{:href => "/default.css", :rel => "stylesheet", :type => "text/css"}/
+    %title Off Campus Housing Guide
+  %body
+    .container
+      #header.span-24
+        %p.heading
+          Welcome to The
+          = succeed "ff Campus" do
+            %b O
+          = succeed "ousing" do
+            %b H
+          = succeed "uide" do
+            %b G
+      .span-24
+        = yield
+      #footer.span-24
+      %fieldset
+        %legend
+          %h2 Log in
+        %h4 Username
+        %input{:name => "username", :type => "text"}
+        %h4 Password
+        %input{:name => "password", :type => "text"}
+        %br
+        %br
+        %a.button{:href => "/users/login"} Sign In
+        %br
+        %p 
+          New User?
+          %a.button{:href => "/users/new_user"} Sign Up
+        %br
+      %br
+      %br
+      %a.button{:href => "/users/guest"} Sign In As Guest

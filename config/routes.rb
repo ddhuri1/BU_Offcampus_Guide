@@ -12,13 +12,9 @@ Rails.application.routes.draw do
   #root :to => "welcome#index"
   #root :new_user => "users#new"
   #root :guest => "users#guest"
-  
-  Rails.application.routes.draw do
   get 'welcome/index' => 'welcome#index'
   get 'users/new_user' => 'users#new_user'
   get 'users/guest' => 'users#guest'
   get 'users/login' => 'users#login'
   root 'welcome#index'
-end
-
 end

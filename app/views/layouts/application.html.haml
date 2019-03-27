@@ -7,4 +7,13 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    %h1.title
+      %center Off Campus Housing Guide
+    #main
+      -if flash[:notice]
+        #notice.message
+          = flash[:notice]
+      -elsif flash[:warning]
+        #warning.message
+          = flash[:warning]
     = yield

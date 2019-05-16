@@ -5,13 +5,7 @@ When("I am on Home Page") do
 end
 
 When("I click on {string}") do |string|
-  if string == "Travel"
-    visit travel_path
-    click_link(string)
-  else
-    visit root_path
-    click_link(string)   
-  end
+  click_link(string)
 end
 
 Then("I should be on the page with the title: Login Page") do

@@ -1,6 +1,6 @@
 %h1 House Listing
 
-= form_tag houses_path
+= form_tag houses_path, :method => :get, :id => 'houses_form' do
   = hidden_field_tag "address_sort", true if @address_header
   = hidden_field_tag "rent_sort", true if @rent_header
   = hidden_field_tag "beds_sort", true if @beds_header
@@ -20,6 +20,7 @@
         %td= house.beds
         %td= link_to 'Show', house
         %td= link_to 'Edit', edit_house_path(house)
-        %td= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' }
-
+        %td= link_to 'Destroy', house, data: { confirm: 'Are you sure?', :method => "delete"}
+%br
+%br
 = link_to 'Add new House', new_house_path

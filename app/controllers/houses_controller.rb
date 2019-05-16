@@ -8,19 +8,10 @@ class HousesController < ApplicationController
     case sort
     when 'address'
       ordering,@address_header = {:address => :asc}, 'hilite'
-      if(sort == 'address')
-        ordering = ordering.reverse_order
-      end
     when 'rent'
       ordering,@rent_header = {:rent => :asc}, 'hilite'
-      if(sort == 'rent')
-        ordering = ordering.reverse_order
-      end
     when 'beds'
       ordering,@beds_header = {:beds => :asc}, 'hilite'
-      if(sort == 'beds')
-        ordering = ordering.reverse_order
-      end
     end
     if params[:sort] != session[:sort]
       session[:sort] = sort

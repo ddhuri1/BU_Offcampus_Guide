@@ -17,7 +17,7 @@ Scenario: See Travel Page
     Then I am on Dashboard
     Then I should see "Travel"
     When I click on "Travel"
-    Then I should see "Travel"
+    Then I should see "TRAVEL"
     When I click "Local"
     Then I should see "Add new Local Bus"
     When I click "Add new Local Bus"
@@ -41,7 +41,7 @@ Scenario: See Travel Page
     Then I am on Dashboard
     Then I should see "Travel"
     When I click on "Travel"
-    Then I should see "Travel"
+    Then I should see "TRAVEL"
     When I click "Local"
     Then I should see "Add new Local Bus"
     When I click "Add new Local Bus"

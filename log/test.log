@@ -33493,3 +33493,737 @@ Processing by EssentialsController#index as HTML
   Rendered layouts/_footer.html.haml (0.2ms)
 Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.1ms)
   [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 22:53:28 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (17.0ms)
+Completed 200 OK in 407ms (Views: 394.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 22:53:28 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+Started GET "/auth/github" for 127.0.0.1 at 2019-05-16 22:53:28 +0000
+Started GET "/auth/github/callback" for 127.0.0.1 at 2019-05-16 22:53:28 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"github"}
+  [1m[36mAuthorization Load (0.3ms)[0m  [1mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."uid" = ? AND "authorizations"."provider" = ? LIMIT 1[0m  [["uid", "49619285"], ["provider", "github"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? AND "users"."email" = ? LIMIT 1  [["name", "My Tester"], ["email", "mytester@gmail.com"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "My Tester"], ["email", "mytester@gmail.com"], ["created_at", "2019-05-16 22:53:28.714397"], ["updated_at", "2019-05-16 22:53:28.714397"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAuthorization Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "authorizations" WHERE ("authorizations"."uid" = '49619285' AND "authorizations"."provider" = 'github') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "authorizations" ("user_id", "uid", "provider", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["user_id", 1], ["uid", "49619285"], ["provider", "github"], ["created_at", "2019-05-16 22:53:28.758270"], ["updated_at", "2019-05-16 22:53:28.758270"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://www.example.com/dashboard/index
+Completed 302 Found in 80ms (ActiveRecord: 2.2ms)
+Started GET "/dashboard/index" for 127.0.0.1 at 2019-05-16 22:53:28 +0000
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered dashboard/index.html.haml within layouts/application (5.0ms)
+  Rendered layouts/_footer.html.haml (2.0ms)
+Completed 200 OK in 24ms (Views: 22.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 22:53:28 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+Started GET "/auth/facebook" for 127.0.0.1 at 2019-05-16 22:53:28 +0000
+Started GET "/auth/facebook/callback" for 127.0.0.1 at 2019-05-16 22:53:28 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.2ms)[0m  SELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."uid" = ? AND "authorizations"."provider" = ? LIMIT 1  [["uid", "2331287163614484"], ["provider", "facebook"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."name" = ? AND "users"."email" = ? LIMIT 1[0m  [["name", "My Tester"], ["email", "MyTester@gmail.com"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Tester"], ["email", "MyTester@gmail.com"], ["created_at", "2019-05-16 22:53:28.841592"], ["updated_at", "2019-05-16 22:53:28.841592"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAuthorization Exists (0.1ms)[0m  SELECT  1 AS one FROM "authorizations" WHERE ("authorizations"."uid" = '2331287163614484' AND "authorizations"."provider" = 'facebook') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "authorizations" ("user_id", "uid", "provider", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["uid", "2331287163614484"], ["provider", "facebook"], ["created_at", "2019-05-16 22:53:28.845146"], ["updated_at", "2019-05-16 22:53:28.845146"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://www.example.com/dashboard/index
+Completed 302 Found in 8ms (ActiveRecord: 1.1ms)
+Started GET "/dashboard/index" for 127.0.0.1 at 2019-05-16 22:53:28 +0000
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered dashboard/index.html.haml within layouts/application (0.4ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 22:53:28 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+Started GET "/auth/facebook" for 127.0.0.1 at 2019-05-16 22:53:28 +0000
+Started GET "/auth/facebook/callback" for 127.0.0.1 at 2019-05-16 22:53:28 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"facebook"}
+  [1m[36mAuthorization Load (0.2ms)[0m  [1mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."uid" = ? AND "authorizations"."provider" = ? LIMIT 1[0m  [["uid", "2331287163614484"], ["provider", "facebook"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? AND "users"."email" = ? LIMIT 1  [["name", "My Tester"], ["email", "MyTester@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "My Tester"], ["email", "MyTester@gmail.com"], ["created_at", "2019-05-16 22:53:28.886897"], ["updated_at", "2019-05-16 22:53:28.886897"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAuthorization Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "authorizations" WHERE ("authorizations"."uid" = '2331287163614484' AND "authorizations"."provider" = 'facebook') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "authorizations" ("user_id", "uid", "provider", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["user_id", 1], ["uid", "2331287163614484"], ["provider", "facebook"], ["created_at", "2019-05-16 22:53:28.890204"], ["updated_at", "2019-05-16 22:53:28.890204"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://www.example.com/dashboard/index
+Completed 302 Found in 7ms (ActiveRecord: 1.2ms)
+Started GET "/dashboard/index" for 127.0.0.1 at 2019-05-16 22:53:28 +0000
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered dashboard/index.html.haml within layouts/application (0.3ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+Started GET "/travel" for 127.0.0.1 at 2019-05-16 22:53:28 +0000
+Processing by TravelController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered travel/index.html.haml within layouts/application (5.6ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.1ms)
+Started GET "/travel" for 127.0.0.1 at 2019-05-16 22:53:28 +0000
+Processing by TravelController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered travel/index.html.haml within layouts/application (0.4ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.1ms)
+Started GET "/travel/locals" for 127.0.0.1 at 2019-05-16 22:53:28 +0000
+Processing by LocalsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mLocal Load (0.2ms)[0m  [1mSELECT "locals".* FROM "locals"[0m
+  Rendered locals/index.html.haml within layouts/application (4.8ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 21ms (Views: 12.8ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+Started GET "/auth/github" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Started GET "/auth/github/callback" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"github"}
+  [1m[35mAuthorization Load (0.2ms)[0m  SELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."uid" = ? AND "authorizations"."provider" = ? LIMIT 1  [["uid", "49619285"], ["provider", "github"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."name" = ? AND "users"."email" = ? LIMIT 1[0m  [["name", "My Tester"], ["email", "mytester@gmail.com"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Tester"], ["email", "mytester@gmail.com"], ["created_at", "2019-05-16 22:53:29.051857"], ["updated_at", "2019-05-16 22:53:29.051857"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAuthorization Exists (0.1ms)[0m  SELECT  1 AS one FROM "authorizations" WHERE ("authorizations"."uid" = '49619285' AND "authorizations"."provider" = 'github') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "authorizations" ("user_id", "uid", "provider", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["uid", "49619285"], ["provider", "github"], ["created_at", "2019-05-16 22:53:29.055491"], ["updated_at", "2019-05-16 22:53:29.055491"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://www.example.com/dashboard/index
+Completed 302 Found in 8ms (ActiveRecord: 1.1ms)
+Started GET "/dashboard/index" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered dashboard/index.html.haml within layouts/application (0.3ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms)
+Started GET "/travel" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by TravelController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered travel/index.html.haml within layouts/application (0.4ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.1ms)
+Started GET "/travel" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by TravelController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered travel/index.html.haml within layouts/application (0.3ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms)
+Started GET "/travel/locals" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by LocalsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mLocal Load (0.1ms)[0m  SELECT "locals".* FROM "locals"
+  Rendered locals/index.html.haml within layouts/application (0.9ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+Started GET "/auth/facebook" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Started GET "/auth/facebook/callback" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"facebook"}
+  [1m[36mAuthorization Load (0.2ms)[0m  [1mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."uid" = ? AND "authorizations"."provider" = ? LIMIT 1[0m  [["uid", "2331287163614484"], ["provider", "facebook"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? AND "users"."email" = ? LIMIT 1  [["name", "My Tester"], ["email", "MyTester@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "My Tester"], ["email", "MyTester@gmail.com"], ["created_at", "2019-05-16 22:53:29.136957"], ["updated_at", "2019-05-16 22:53:29.136957"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAuthorization Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "authorizations" WHERE ("authorizations"."uid" = '2331287163614484' AND "authorizations"."provider" = 'facebook') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "authorizations" ("user_id", "uid", "provider", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["user_id", 1], ["uid", "2331287163614484"], ["provider", "facebook"], ["created_at", "2019-05-16 22:53:29.141172"], ["updated_at", "2019-05-16 22:53:29.141172"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://www.example.com/dashboard/index
+Completed 302 Found in 9ms (ActiveRecord: 1.3ms)
+Started GET "/dashboard/index" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered dashboard/index.html.haml within layouts/application (0.4ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms)
+Started GET "/houses" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by HousesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT "houses".* FROM "houses"[0m
+  Rendered houses/index.html.haml within layouts/application (6.9ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 28ms (Views: 14.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (23.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+Started GET "/auth/github" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Started GET "/auth/github/callback" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"github"}
+  [1m[35mAuthorization Load (0.3ms)[0m  SELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."uid" = ? AND "authorizations"."provider" = ? LIMIT 1  [["uid", "49619285"], ["provider", "github"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."name" = ? AND "users"."email" = ? LIMIT 1[0m  [["name", "My Tester"], ["email", "mytester@gmail.com"]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Tester"], ["email", "mytester@gmail.com"], ["created_at", "2019-05-16 22:53:29.267959"], ["updated_at", "2019-05-16 22:53:29.267959"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAuthorization Exists (0.1ms)[0m  SELECT  1 AS one FROM "authorizations" WHERE ("authorizations"."uid" = '49619285' AND "authorizations"."provider" = 'github') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "authorizations" ("user_id", "uid", "provider", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["uid", "49619285"], ["provider", "github"], ["created_at", "2019-05-16 22:53:29.272542"], ["updated_at", "2019-05-16 22:53:29.272542"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://www.example.com/dashboard/index
+Completed 302 Found in 10ms (ActiveRecord: 1.5ms)
+Started GET "/dashboard/index" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered dashboard/index.html.haml within layouts/application (0.4ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.1ms)
+Started GET "/houses" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by HousesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.2ms)[0m  SELECT "houses".* FROM "houses"
+  Rendered houses/index.html.haml within layouts/application (1.5ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+Started GET "/auth/facebook" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Started GET "/auth/facebook/callback" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"facebook"}
+  [1m[36mAuthorization Load (0.2ms)[0m  [1mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."uid" = ? AND "authorizations"."provider" = ? LIMIT 1[0m  [["uid", "2331287163614484"], ["provider", "facebook"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? AND "users"."email" = ? LIMIT 1  [["name", "My Tester"], ["email", "MyTester@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "My Tester"], ["email", "MyTester@gmail.com"], ["created_at", "2019-05-16 22:53:29.329153"], ["updated_at", "2019-05-16 22:53:29.329153"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAuthorization Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "authorizations" WHERE ("authorizations"."uid" = '2331287163614484' AND "authorizations"."provider" = 'facebook') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "authorizations" ("user_id", "uid", "provider", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["user_id", 1], ["uid", "2331287163614484"], ["provider", "facebook"], ["created_at", "2019-05-16 22:53:29.333488"], ["updated_at", "2019-05-16 22:53:29.333488"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://www.example.com/dashboard/index
+Completed 302 Found in 9ms (ActiveRecord: 1.3ms)
+Started GET "/dashboard/index" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered dashboard/index.html.haml within layouts/application (0.3ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started GET "/essentials" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by EssentialsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered essentials/index.haml within layouts/application (5.9ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+Started GET "/auth/github" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Started GET "/auth/github/callback" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"github"}
+  [1m[36mAuthorization Load (0.2ms)[0m  [1mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."uid" = ? AND "authorizations"."provider" = ? LIMIT 1[0m  [["uid", "49619285"], ["provider", "github"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? AND "users"."email" = ? LIMIT 1  [["name", "My Tester"], ["email", "mytester@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "My Tester"], ["email", "mytester@gmail.com"], ["created_at", "2019-05-16 22:53:29.421382"], ["updated_at", "2019-05-16 22:53:29.421382"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAuthorization Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "authorizations" WHERE ("authorizations"."uid" = '49619285' AND "authorizations"."provider" = 'github') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "authorizations" ("user_id", "uid", "provider", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["user_id", 1], ["uid", "49619285"], ["provider", "github"], ["created_at", "2019-05-16 22:53:29.425843"], ["updated_at", "2019-05-16 22:53:29.425843"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://www.example.com/dashboard/index
+Completed 302 Found in 9ms (ActiveRecord: 1.3ms)
+Started GET "/dashboard/index" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered dashboard/index.html.haml within layouts/application (0.5ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.1ms)
+Started GET "/essentials" for 127.0.0.1 at 2019-05-16 22:53:29 +0000
+Processing by EssentialsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered essentials/index.haml within layouts/application (0.4ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 23:02:26 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (13.9ms)
+Completed 200 OK in 371ms (Views: 358.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 23:02:26 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+Started GET "/auth/github" for 127.0.0.1 at 2019-05-16 23:02:26 +0000
+Started GET "/auth/github/callback" for 127.0.0.1 at 2019-05-16 23:02:26 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"github"}
+  [1m[36mAuthorization Load (0.3ms)[0m  [1mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."uid" = ? AND "authorizations"."provider" = ? LIMIT 1[0m  [["uid", "49619285"], ["provider", "github"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? AND "users"."email" = ? LIMIT 1  [["name", "My Tester"], ["email", "mytester@gmail.com"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "My Tester"], ["email", "mytester@gmail.com"], ["created_at", "2019-05-16 23:02:26.700386"], ["updated_at", "2019-05-16 23:02:26.700386"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAuthorization Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "authorizations" WHERE ("authorizations"."uid" = '49619285' AND "authorizations"."provider" = 'github') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "authorizations" ("user_id", "uid", "provider", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["user_id", 1], ["uid", "49619285"], ["provider", "github"], ["created_at", "2019-05-16 23:02:26.746371"], ["updated_at", "2019-05-16 23:02:26.746371"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://www.example.com/dashboard/index
+Completed 302 Found in 146ms (ActiveRecord: 2.5ms)
+Started GET "/dashboard/index" for 127.0.0.1 at 2019-05-16 23:02:26 +0000
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered dashboard/index.html.haml within layouts/application (5.7ms)
+  Rendered layouts/_footer.html.haml (2.2ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 23:02:26 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+Started GET "/auth/facebook" for 127.0.0.1 at 2019-05-16 23:02:26 +0000
+Started GET "/auth/facebook/callback" for 127.0.0.1 at 2019-05-16 23:02:26 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.2ms)[0m  SELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."uid" = ? AND "authorizations"."provider" = ? LIMIT 1  [["uid", "2331287163614484"], ["provider", "facebook"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."name" = ? AND "users"."email" = ? LIMIT 1[0m  [["name", "My Tester"], ["email", "MyTester@gmail.com"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Tester"], ["email", "MyTester@gmail.com"], ["created_at", "2019-05-16 23:02:26.827884"], ["updated_at", "2019-05-16 23:02:26.827884"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAuthorization Exists (0.2ms)[0m  SELECT  1 AS one FROM "authorizations" WHERE ("authorizations"."uid" = '2331287163614484' AND "authorizations"."provider" = 'facebook') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "authorizations" ("user_id", "uid", "provider", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["uid", "2331287163614484"], ["provider", "facebook"], ["created_at", "2019-05-16 23:02:26.900862"], ["updated_at", "2019-05-16 23:02:26.900862"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://www.example.com/dashboard/index
+Completed 302 Found in 78ms (ActiveRecord: 1.6ms)
+Started GET "/dashboard/index" for 127.0.0.1 at 2019-05-16 23:02:26 +0000
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered dashboard/index.html.haml within layouts/application (0.5ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 23:02:26 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+Started GET "/auth/facebook" for 127.0.0.1 at 2019-05-16 23:02:26 +0000
+Started GET "/auth/facebook/callback" for 127.0.0.1 at 2019-05-16 23:02:26 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"facebook"}
+  [1m[36mAuthorization Load (0.3ms)[0m  [1mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."uid" = ? AND "authorizations"."provider" = ? LIMIT 1[0m  [["uid", "2331287163614484"], ["provider", "facebook"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? AND "users"."email" = ? LIMIT 1  [["name", "My Tester"], ["email", "MyTester@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "My Tester"], ["email", "MyTester@gmail.com"], ["created_at", "2019-05-16 23:02:26.945925"], ["updated_at", "2019-05-16 23:02:26.945925"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAuthorization Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "authorizations" WHERE ("authorizations"."uid" = '2331287163614484' AND "authorizations"."provider" = 'facebook') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "authorizations" ("user_id", "uid", "provider", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["user_id", 1], ["uid", "2331287163614484"], ["provider", "facebook"], ["created_at", "2019-05-16 23:02:26.949694"], ["updated_at", "2019-05-16 23:02:26.949694"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://www.example.com/dashboard/index
+Completed 302 Found in 8ms (ActiveRecord: 1.3ms)
+Started GET "/dashboard/index" for 127.0.0.1 at 2019-05-16 23:02:26 +0000
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered dashboard/index.html.haml within layouts/application (0.4ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms)
+Started GET "/travel" for 127.0.0.1 at 2019-05-16 23:02:26 +0000
+Processing by TravelController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered travel/index.html.haml within layouts/application (5.9ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 19ms (Views: 17.1ms | ActiveRecord: 0.2ms)
+Started GET "/travel" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by TravelController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered travel/index.html.haml within layouts/application (0.5ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.1ms)
+Started GET "/travel/locals" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by LocalsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mLocal Load (0.2ms)[0m  [1mSELECT "locals".* FROM "locals"[0m
+  Rendered locals/index.html.haml within layouts/application (5.1ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 94ms (Views: 13.8ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started GET "/auth/github" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Started GET "/auth/github/callback" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"github"}
+  [1m[35mAuthorization Load (0.2ms)[0m  SELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."uid" = ? AND "authorizations"."provider" = ? LIMIT 1  [["uid", "49619285"], ["provider", "github"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."name" = ? AND "users"."email" = ? LIMIT 1[0m  [["name", "My Tester"], ["email", "mytester@gmail.com"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Tester"], ["email", "mytester@gmail.com"], ["created_at", "2019-05-16 23:02:27.191525"], ["updated_at", "2019-05-16 23:02:27.191525"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAuthorization Exists (0.1ms)[0m  SELECT  1 AS one FROM "authorizations" WHERE ("authorizations"."uid" = '49619285' AND "authorizations"."provider" = 'github') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "authorizations" ("user_id", "uid", "provider", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["uid", "49619285"], ["provider", "github"], ["created_at", "2019-05-16 23:02:27.195640"], ["updated_at", "2019-05-16 23:02:27.195640"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://www.example.com/dashboard/index
+Completed 302 Found in 9ms (ActiveRecord: 1.2ms)
+Started GET "/dashboard/index" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered dashboard/index.html.haml within layouts/application (0.3ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms)
+Started GET "/travel" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by TravelController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered travel/index.html.haml within layouts/application (0.4ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.1ms)
+Started GET "/travel" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by TravelController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered travel/index.html.haml within layouts/application (0.4ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.1ms)
+Started GET "/travel/locals" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by LocalsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mLocal Load (0.1ms)[0m  SELECT "locals".* FROM "locals"
+  Rendered locals/index.html.haml within layouts/application (0.9ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+Started GET "/auth/facebook" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Started GET "/auth/facebook/callback" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"facebook"}
+  [1m[36mAuthorization Load (0.2ms)[0m  [1mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."uid" = ? AND "authorizations"."provider" = ? LIMIT 1[0m  [["uid", "2331287163614484"], ["provider", "facebook"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? AND "users"."email" = ? LIMIT 1  [["name", "My Tester"], ["email", "MyTester@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "My Tester"], ["email", "MyTester@gmail.com"], ["created_at", "2019-05-16 23:02:27.402339"], ["updated_at", "2019-05-16 23:02:27.402339"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAuthorization Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "authorizations" WHERE ("authorizations"."uid" = '2331287163614484' AND "authorizations"."provider" = 'facebook') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "authorizations" ("user_id", "uid", "provider", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["user_id", 1], ["uid", "2331287163614484"], ["provider", "facebook"], ["created_at", "2019-05-16 23:02:27.405847"], ["updated_at", "2019-05-16 23:02:27.405847"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://www.example.com/dashboard/index
+Completed 302 Found in 8ms (ActiveRecord: 1.2ms)
+Started GET "/dashboard/index" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered dashboard/index.html.haml within layouts/application (0.4ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms)
+Started GET "/houses" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by HousesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.3ms)[0m  [1mSELECT "houses".* FROM "houses"[0m
+  Rendered houses/index.html.haml within layouts/application (7.2ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 25ms (Views: 14.0ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+Started GET "/auth/github" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Started GET "/auth/github/callback" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"github"}
+  [1m[35mAuthorization Load (0.2ms)[0m  SELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."uid" = ? AND "authorizations"."provider" = ? LIMIT 1  [["uid", "49619285"], ["provider", "github"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."name" = ? AND "users"."email" = ? LIMIT 1[0m  [["name", "My Tester"], ["email", "mytester@gmail.com"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "My Tester"], ["email", "mytester@gmail.com"], ["created_at", "2019-05-16 23:02:27.567854"], ["updated_at", "2019-05-16 23:02:27.567854"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mAuthorization Exists (0.1ms)[0m  SELECT  1 AS one FROM "authorizations" WHERE ("authorizations"."uid" = '49619285' AND "authorizations"."provider" = 'github') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "authorizations" ("user_id", "uid", "provider", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["uid", "49619285"], ["provider", "github"], ["created_at", "2019-05-16 23:02:27.571797"], ["updated_at", "2019-05-16 23:02:27.571797"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://www.example.com/dashboard/index
+Completed 302 Found in 9ms (ActiveRecord: 1.4ms)
+Started GET "/dashboard/index" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered dashboard/index.html.haml within layouts/application (0.3ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.1ms)
+Started GET "/houses" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by HousesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.2ms)[0m  SELECT "houses".* FROM "houses"
+  Rendered houses/index.html.haml within layouts/application (1.6ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+Started GET "/auth/facebook" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Started GET "/auth/facebook/callback" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"facebook"}
+  [1m[36mAuthorization Load (0.2ms)[0m  [1mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."uid" = ? AND "authorizations"."provider" = ? LIMIT 1[0m  [["uid", "2331287163614484"], ["provider", "facebook"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? AND "users"."email" = ? LIMIT 1  [["name", "My Tester"], ["email", "MyTester@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "My Tester"], ["email", "MyTester@gmail.com"], ["created_at", "2019-05-16 23:02:27.625610"], ["updated_at", "2019-05-16 23:02:27.625610"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAuthorization Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "authorizations" WHERE ("authorizations"."uid" = '2331287163614484' AND "authorizations"."provider" = 'facebook') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "authorizations" ("user_id", "uid", "provider", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["user_id", 1], ["uid", "2331287163614484"], ["provider", "facebook"], ["created_at", "2019-05-16 23:02:27.629678"], ["updated_at", "2019-05-16 23:02:27.629678"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://www.example.com/dashboard/index
+Completed 302 Found in 78ms (ActiveRecord: 1.6ms)
+Started GET "/dashboard/index" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered dashboard/index.html.haml within layouts/application (0.4ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms)
+Started GET "/essentials" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by EssentialsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered essentials/index.haml within layouts/application (6.8ms)
+  Rendered layouts/_footer.html.haml (0.2ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Started GET "/welcome/login" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by WelcomeController#login as HTML
+  Rendered welcome/login.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+Started GET "/auth/github" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Started GET "/auth/github/callback" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"github"}
+  [1m[36mAuthorization Load (0.2ms)[0m  [1mSELECT  "authorizations".* FROM "authorizations" WHERE "authorizations"."uid" = ? AND "authorizations"."provider" = ? LIMIT 1[0m  [["uid", "49619285"], ["provider", "github"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? AND "users"."email" = ? LIMIT 1  [["name", "My Tester"], ["email", "mytester@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "My Tester"], ["email", "mytester@gmail.com"], ["created_at", "2019-05-16 23:02:27.796156"], ["updated_at", "2019-05-16 23:02:27.796156"]]
+  [1m[36m (0.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAuthorization Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "authorizations" WHERE ("authorizations"."uid" = '49619285' AND "authorizations"."provider" = 'github') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "authorizations" ("user_id", "uid", "provider", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["user_id", 1], ["uid", "49619285"], ["provider", "github"], ["created_at", "2019-05-16 23:02:27.802007"], ["updated_at", "2019-05-16 23:02:27.802007"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://www.example.com/dashboard/index
+Completed 302 Found in 12ms (ActiveRecord: 2.0ms)
+Started GET "/dashboard/index" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered dashboard/index.html.haml within layouts/application (0.4ms)
+  Rendered layouts/_footer.html.haml (0.7ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.1ms)
+Started GET "/essentials" for 127.0.0.1 at 2019-05-16 23:02:27 +0000
+Processing by EssentialsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered essentials/index.haml within layouts/application (0.3ms)
+  Rendered layouts/_footer.html.haml (0.5ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m

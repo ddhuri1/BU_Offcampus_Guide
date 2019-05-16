@@ -1,0 +1,20 @@
+%table#clothings{:border => 2}
+  %thead
+    %tr
+      %th Name
+      %th Review
+      %th Address
+      %th Website
+  %tbody
+    - @clothings.each do |clothing|
+      %tr
+        %td= clothing.name 
+        %td= clothing.review
+        %td= clothing.address
+        %td= clothing.website
+        %td= link_to 'Edit Store', edit_clothing_path(clothing)
+        %td= link_to 'Delete Store', clothing_path(clothing), :data => {:confirm => "Are you sure?", :method => "delete"}
+
+%br
+%br
+= link_to 'Add new store', new_clothing_path

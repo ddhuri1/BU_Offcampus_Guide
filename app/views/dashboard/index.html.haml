@@ -1,0 +1,47 @@
+
+<!-- = link_to 'Cleanup', cleanup_path-->
+
+
+%html
+    %head
+        %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+        %link{:href => "/default.css", :rel => "stylesheet", :type => "text/css"}
+        %title Off Campus Housing Guide Homepage
+        %br
+    %body
+        .container
+            #footer.span-24
+            %fieldset
+                %legend
+                    %h2 DASHBOARD
+                %br
+                %li
+                    = link_to "Housing", houses_path
+                %br
+                %br
+                %li
+                    = link_to "Essentials", essentials_path
+                %br
+                %br
+                %li
+                    = link_to "Travel", travel_path
+                    
+                %br
+                %br
+                %li
+                    %a.button{:href => "/faq/faq"}FAQ's
+                    
+                %br
+                %br
+                %li
+                    %a.button{:href => "/faq/contact"}Contact Us
+                    
+                %br
+                %br
+            %br
+
+
+
+
+
+

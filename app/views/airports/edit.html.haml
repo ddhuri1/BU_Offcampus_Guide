@@ -1,0 +1,21 @@
+%h1 Edit Existing Store
+
+= form_tag airport_path(@airport), :method => :put do
+
+  = label :airport, :name, 'Name'
+  = text_field :airport, 'name'
+  %br 
+  %br
+  = label :airport, :review, 'Reviews'
+  = text_field :airport, 'review'
+  %br
+  %br
+  = label :airport, :address, 'Address'
+  = text_field :airport, 'address'
+  %br
+  %br
+  = label :airport, :website, 'Website'
+  = text_field :airport, 'website'
+  %br
+  %br
+  = submit_tag 'Update Airport Info'

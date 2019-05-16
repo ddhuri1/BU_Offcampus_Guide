@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %link{:href => "/default.css", :rel => "stylesheet", :type => "text/css"}/
+    %title OffcampusHousingGuide
+    %br
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %h1.title
+      %center Off Campus Housing Guide
+      %br
+      - if flash[:error]
+        #error.message= flash[:error]
+      - elsif flash[:notice]
+        #notice.message= flash[:notice]
+      - elsif flash[:warning]
+        #warning.message= flash[:warning]
+
+      = yield
+      - unless @action == 'login'
+        = render "layouts/footer"
+

@@ -1,0 +1,31 @@
+= form_for @house do |f|
+  - if @house.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@house.errors.count, "error")} prohibited this house from being saved:"
+      %ul
+        - @house.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :address
+    = f.text_field :address
+  .field
+    = f.label :landlord
+    = f.text_field :landlord
+  .field
+    = f.label :rent
+    = f.number_field :rent
+  .field
+    = f.label :beds
+    = f.number_field :beds
+  .field
+    = f.label :contact
+    = f.text_field :contact
+  .field
+    = f.label :bathrooms
+    = f.text_field :bathrooms
+  .field
+    = f.label :further_details
+    = f.text_field :further_details
+  .actions
+    = f.submit 'Save'

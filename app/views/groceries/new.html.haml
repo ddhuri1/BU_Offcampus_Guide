@@ -1,0 +1,21 @@
+%h1 Create New Grocery Store
+
+= form_tag groceries_path do
+
+  = label :grocery, :name, 'Name'
+  = text_field :grocery, 'name'
+  %br
+  %br
+  = label :grocery, :review, 'Reviews'
+  = text_field :grocery, 'review'
+  %br
+  %br
+  = label :grocery, :address, 'Address'
+  = text_field :grocery, 'address'
+  %br
+  %br
+  = label :grocery, :website, 'Website'
+  = text_field :grocery, 'website'
+  %br
+  %br
+  = submit_tag 'Save Changes'

@@ -1,0 +1,20 @@
+%table#buses{:border => 2}
+  %thead
+    %tr
+      %th Name
+      %th Review
+      %th Address
+      %th Website
+  %tbody
+    - @buses.each do |bus|
+      %tr
+        %td= bus.name 
+        %td= bus.review
+        %td= bus.address
+        %td= bus.website
+        %td= link_to 'Edit Bus', edit_bus_path(bus)
+        %td= link_to 'Delete Bus', bus_path(bus), :data => {:confirm => "Are you sure?", :method => "delete"}
+
+%br
+%br
+= link_to 'Add new bus', new_bus_path

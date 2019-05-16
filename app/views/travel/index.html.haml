@@ -1,0 +1,39 @@
+%h2 TRAVEL
+%html
+    %head
+        %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+        %link{:href => "/default.css", :rel => "stylesheet", :type => "text/css"}/
+        %title Off Campus Housing Guide Homepage
+    %body
+        .container
+            #footer.span-24
+            %fieldset
+                %legend
+                    %h2 TRAVEL
+                %br
+                %li
+                    // %a{:href => locals_path} Local
+                    = link_to "Local", locals_path
+
+                %br
+                %br
+                %li
+                    // %a{:href => buses_path} Bus
+                    = link_to "Bus", buses_path
+                %br
+                %br
+                %li
+                    // %a{:href => airports_path} Airports
+                    = link_to "Airports", airports_path
+                %br
+                %br
+                %li
+                    // %a{:href => carrentals_path} Car Rentals
+                    = link_to "Car Rentals", carrentals_path
+                %br
+            %br
+            %a.button{:href => "/dashboard/index"}Back to Homepage
+            %br
+        %br
+
+

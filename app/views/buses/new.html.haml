@@ -1,0 +1,21 @@
+%h1 Create New Grocery Store
+
+= form_tag buses_path do
+
+  = label :bus, :name, 'Name'
+  = text_field :bus, 'name'
+  %br
+  %br
+  = label :bus, :review, 'Reviews'
+  = text_field :bus, 'review'
+  %br
+  %br
+  = label :bus, :address, 'Address'
+  = text_field :bus, 'address'
+  %br
+  %br
+  = label :bus, :website, 'Website'
+  = text_field :bus, 'website'
+  %br
+  %br
+  = submit_tag 'Save Changes'

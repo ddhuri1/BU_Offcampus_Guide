@@ -1,0 +1,21 @@
+%h1 Edit Existing Store
+
+= form_tag household_path(@household), :method => :put do
+
+  = label :household, :name, 'Name'
+  = text_field :household, 'name'
+  %br 
+  %br
+  = label :household, :review, 'Reviews'
+  = text_field :household, 'review'
+  %br
+  %br
+  = label :household, :address, 'Address'
+  = text_field :household, 'address'
+  %br
+  %br
+  = label :household, :website, 'Website'
+  = text_field :household, 'website'
+  %br
+  %br
+  = submit_tag 'Update Store Info'

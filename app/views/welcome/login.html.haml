@@ -1,0 +1,33 @@
+<!-- %h1 Welcome
+%div
+= link_to 'Register or Log In with GitHub', '/auth/github'
+%div
+= link_to 'Register or Log In with Facebook', '/auth/facebook'
+%div -->
+
+%html
+    %head
+        %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+        %link{:href => "/default.css", :rel => "stylesheet", :type => "text/css"}/
+        %title Off Campus Housing Guide Homepage
+        %br
+    %body
+        .container
+            #header.span-24
+                %p.heading
+                    Welcome to The Off Campus Housing Guide
+                .span-24
+                    = yield
+            #footer.span-24
+            %fieldset
+                %legend
+                    %h2 Log in
+                %br
+                //=link_to 'Register or Log In With GitHub', "login/auth/github", data: { turbolinks: false }
+                %a.button{:href => "/auth/github"}Register or Log In With Github
+                %br
+                %br
+                //= link_to 'Register or Log In With Facebook', "login/auth/facebook", data: { turbolinks: false }
+                %a.button{:href => "/auth/facebook"}Register or Log In With Facebook
+                %br
+            %br

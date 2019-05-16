@@ -1,0 +1,19 @@
+%h2 Signup
+
+= form_tag , :method => :put do
+    
+    =label :account, :username, 'Username'
+    = text_field :account, 'username'
+    
+    =label :account, :email, 'Email'
+    = text_field :account, 'email'
+    
+    =label :account, :password, 'Password'
+    = password_field :account, 'password'
+    
+    =label :account, :confirm, 'Confirm'
+    = password_field :account, 'confirm'
+    
+    = submit_tag 'Signup'
+    
+= link_to 'Back', previous_page

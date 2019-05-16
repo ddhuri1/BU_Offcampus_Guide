@@ -1,0 +1,20 @@
+%table#carrentals{:border => 2}
+  %thead
+    %tr
+      %th Name
+      %th Review
+      %th Address
+      %th Website
+  %tbody
+    - @carrentals.each do |rental|
+      %tr
+        %td= rental.name 
+        %td= rental.review
+        %td= rental.address
+        %td= rental.website
+        %td= link_to 'Edit Car Rental', edit_carrental_path(rental)
+        %td= link_to 'Delete Car Rental', carrental_path(rental), :data => {:confirm => "Are you sure?", :method => "delete"}
+
+%br
+%br
+= link_to 'Add new Car Rental', new_carrental_path

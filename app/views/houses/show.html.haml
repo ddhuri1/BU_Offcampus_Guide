@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Address:
+  = @house.address
+%p
+  %b Landlord:
+  = @house.landlord
+%p
+  %b Rent:
+  = @house.rent
+%p
+  %b Beds:
+  = @house.beds
+%p
+  %b Contact:
+  = @house.contact
+%p
+  %b Bathrooms:
+  = @house.bathrooms
+%p
+  %b Further details:
+  = @house.further_details
+
+= link_to 'Edit', edit_house_path(@house)
+\|
+= link_to 'Back', houses_path

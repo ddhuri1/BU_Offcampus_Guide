@@ -1,0 +1,20 @@
+%table#airports{:border => 2}
+  %thead
+    %tr
+      %th Name
+      %th Review
+      %th Address
+      %th Website
+  %tbody
+    - @airports.each do |airport|
+      %tr
+        %td= airport.name 
+        %td= airport.review
+        %td= airport.address
+        %td= airport.website
+        %td= link_to 'Edit Airport', edit_airport_path(airport)
+        %td= link_to 'Delete Airport', airport_path(airport), :data => {:confirm => "Are you sure?", :method => "delete"}
+
+%br
+%br
+= link_to 'Add new airport', new_airport_path

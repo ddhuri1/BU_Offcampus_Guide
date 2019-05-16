@@ -1,0 +1,2 @@
+module CarrentalHelper
+end

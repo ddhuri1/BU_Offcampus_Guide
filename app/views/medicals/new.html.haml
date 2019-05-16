@@ -1,0 +1,22 @@
+%h1 Create New Medical
+
+= form_tag medicals_path do
+
+  = label :medical, :name, 'Name'
+  = text_field :medical, 'name'
+  %br
+  %br
+  = label :medical, :review, 'Reviews'
+  = text_field :medical, 'review'
+  %br
+  %br
+  = label :medical, :address, 'Address'
+  = text_field :medical, 'address'
+  %br
+  %br
+  
+  = label :medical, :website, 'Website'
+  = text_field :medical, 'website'
+  %br
+  %br
+  = submit_tag 'Save Changes'

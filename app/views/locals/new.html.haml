@@ -1,0 +1,21 @@
+%h1 Create New Local Bus
+
+= form_tag locals_path do
+
+  = label :local, :name, 'Name'
+  = text_field :local, 'name'
+  %br
+  %br
+  = label :local, :review, 'Reviews'
+  = text_field :local, 'review'
+  %br
+  %br
+  = label :local, :address, 'Address'
+  = text_field :local, 'address'
+  %br
+  %br
+  = label :local, :website, 'Website'
+  = text_field :local, 'website'
+  %br
+  %br
+  = submit_tag 'Save Changes'

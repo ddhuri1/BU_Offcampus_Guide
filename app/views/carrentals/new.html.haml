@@ -1,0 +1,21 @@
+%h1 Create New Car Rental
+
+= form_tag carrentals_path do
+
+  = label :carrental, :name, 'Name'
+  = text_field :carrental, 'name'
+  %br
+  %br
+  = label :carrental, :review, 'Reviews'
+  = text_field :carrental, 'review'
+  %br
+  %br
+  = label :carrental, :address, 'Address'
+  = text_field :carrental, 'address'
+  %br
+  %br
+  = label :carrental, :website, 'Website'
+  = text_field :carrental, 'website'
+  %br
+  %br
+  = submit_tag 'Save Changes'

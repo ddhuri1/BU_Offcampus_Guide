@@ -1,0 +1,23 @@
+%table#groceries{:border => 2}
+  %thead
+    %tr
+      %th Name
+      %th Review
+      %th Address
+      %th Website
+      %br
+  %tbody
+    %br
+    - @groceries.each do |grocery|
+      %tr
+        %td= grocery.name 
+        %td= grocery.review
+        %td= grocery.address
+        %td= grocery.website
+        %td= link_to 'Edit Store', edit_grocery_path(grocery)
+        %td= link_to 'Delete Store', grocery_path(grocery), :data => {:confirm => "Are you sure?", :method => "delete"}
+        %br
+      %br
+%br
+%br
+= link_to 'Add new store', new_grocery_path

@@ -1,0 +1,19 @@
+%table#locals{:border => 2}
+  %thead
+    %tr
+      %th Name
+      %th Review
+      %th Address
+      %th Website
+  %tbody
+    - @locals.each do |local|
+      %tr
+        %td= local.name 
+        %td= local.review
+        %td= local.address
+        %td= local.website
+        %td= link_to 'Edit Local Bus', edit_local_path(local)
+        %td= link_to 'Delete Local Bus', local_path(local), :data => {:confirm => "Are you sure?", :method => "delete"}
+%br
+%br
+= link_to 'Add new Local Bus', new_local_path

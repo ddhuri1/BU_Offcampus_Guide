@@ -1,0 +1,2 @@
+module EssentialsHelper
+end

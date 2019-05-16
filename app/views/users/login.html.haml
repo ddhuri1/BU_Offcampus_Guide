@@ -1,0 +1,21 @@
+%html{:lang => "en"}
+  %body
+    %h1 Login Page
+    %p On left side you can see all features and on click of any particular feature respective page will open here.
+    #wrapper
+      / Sidebar
+      #sidebar-wrapper
+        %ul.sidebar-nav
+          %li
+            %a{:href => "#"} Housing
+            //= link_to 'Housing', 
+          %li
+            %a{:href => "#"} Travel
+            //= link_to 'Travel', 
+          %li
+            %a{:href => "#"} Essentials
+            //= link_to 'Essentials', 
+          
+        %a.button{:href => "/welcome/index"}Back to Homepage
+        %br
+      

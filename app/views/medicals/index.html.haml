@@ -1,0 +1,19 @@
+%table#medicals{:border => 2}
+  %thead
+    %tr
+      %th Name
+      %th Review
+      %th Address
+      %th Website
+  %tbody
+    - @medicals.each do |medical|
+      %tr
+        %td= medical.name 
+        %td= medical.review
+        %td= medical.address
+        %td= medical.website
+        %td= link_to 'Edit Medical', edit_medical_path(medical)
+        %td= link_to 'Delete Medical', medical_path(medical), :data => {:confirm => "Are you sure?", :method => "delete"}
+%br
+%br
+= link_to 'Add new Medical', new_medical_path

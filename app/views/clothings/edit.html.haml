@@ -1,0 +1,21 @@
+%h1 Edit Existing Store
+
+= form_tag clothing_path(@clothing), :method => :put do
+
+  = label :clothing, :name, 'Name'
+  = text_field :clothing, 'name'
+  %br 
+  %br
+  = label :clothing, :review, 'Reviews'
+  = text_field :clothing, 'review'
+  %br
+  %br
+  = label :clothing, :address, 'Address'
+  = text_field :clothing, 'address'
+  %br
+  %br
+  = label :clothing, :website, 'Website'
+  = text_field :clothing, 'website'
+  %br
+  %br
+  = submit_tag 'Update Store Info'

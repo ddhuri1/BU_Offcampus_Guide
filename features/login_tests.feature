@@ -10,7 +10,6 @@ Background: Following users exist
     | ddhuri1@binghamton.edu| 2         |
     | scottmason@gmail.com| 3   |
 
-
 @omniauth_test
 Scenario: See Login Page
     When I am on Home Page

@@ -5,7 +5,7 @@ When("I am on Dashboard") do
 end
 
 Then("I should see {string}") do |string|
-  visit dashboard_index_path
+  #visit dashboard_index_path
   if page.respond_to? :should
     page.should have_content(string)
   else

@@ -57,7 +57,12 @@ All other gems (without specific versions) are found in the gemfile
 # Instructions For Continuation
 
 1] git clone https://github.com/ddhuri1/BU_Offcampus_Guide.git
-2] Get the database setup with "rake db:migrate"
-3] Seed the database with some initial data using "rake db:seed" (this step is not required)
-4] Run the server via the command "rails -server -p $PORT -b $IP"
+
+2] bundle install --without production
+
+3] Get the database setup with "rake db:migrate"
+
+4] Seed the database with some initial data using "rake db:seed" (this step is not required)
+
+5] Run the server via the command "rails -server -p $PORT -b $IP"
 

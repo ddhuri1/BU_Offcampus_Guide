@@ -64,5 +64,5 @@ All other gems (without specific versions) are found in the gemfile
 
 4] Seed the database with some initial data using "rake db:seed" (this step is not required)
 
-5] Run the server via the command "rails -server -p $PORT -b $IP"
+5] Run the server via the command " rails s -p $PORT -b $IP"
 

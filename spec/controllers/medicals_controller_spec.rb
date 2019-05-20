@@ -44,22 +44,43 @@ RSpec.describe MedicalsController, type: :controller do
     end
     
     describe "#create" do
+        let(:params) {{:name => "CVS"}}
+        let(:medical) {double('medical', params)}
         let(:id) {'1'}
         let(:id2) {'2'}
-        let(:medical) {instance_double('medical',:name => 'CVS')}
+        #let(:medical) {instance_double('medical',:name => 'CVS')}
         let(:medical2) {instance_double('medical2',:name => 'Walgreens')}
         let(:medicals) {[medical,medical2]}
         context "When a medical is created" do
             describe "When trying to create a medical with the same name" do
-                it "flashes a warning saying that a medical with that name already exists" do
+                it "calls the new method to create the medical" do
+                    allow(controller).to receive(:can_proceed).and_return(@current_user)
+                    expect(Medical).to receive(:new).with(params).and_return(medical)
+                    allow(medical).to receive(:save)
+                    post :create, {medical: params }
                 end
             end
-            describe "When trying to create a medical without filling all the fields" do
-                it "flashes a warning saying that was an invalid medical" do
-                  # expect(Medical).to receive(:find).with(@id).and_return(medical)
-                  # get :show, {:id => id}
-                  
-                  #expect(flash[:warning]).to eq("Invalid medical Entry.")
+        end
+    end
+    
+    describe "#update" do
+        before :each do
+            @current_user=instance_double('User', name: 'student')
+        end
+        let(:params) {{:name => "CVS"}}
+        let(:medical) {double('medical', params)}
+        let(:id) {'1'}
+        let(:id2) {'2'}
+        #let(:airport) {instance_double('airport',:name => 'Greater Binghamton Airport')}
+        let(:medical2) {instance_double('medical2',:name => 'Walgreens')}
+        let(:medicals) {[medical,medical2]}
+        context "When a medical is updated" do
+            describe "When looking to update a medical" do
+                it "calls the find method to update the medical" do
+                    allow(controller).to receive(:can_proceed).and_return(@current_user)
+                    expect(Medical).to receive(:find).with(id).and_return(medical)
+                    allow(medical).to receive(:update_attributes).with(params)
+                    get :update,  id: id, medical: params
                 end
             end
         end

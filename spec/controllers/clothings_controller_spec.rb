@@ -45,22 +45,41 @@ RSpec.describe ClothingsController, type: :controller do
     end
     
     describe "#create" do
+        let(:params) {{:name => "JC Penney"}}
+        let(:clothing) {double('clothing', params)}
         let(:id) {'1'}
         let(:id2) {'2'}
-        let(:clothing) {instance_double('clothing',:name => 'JC Penney')}
+        #let(:clothing) {instance_double('clothing',:name => 'JC Penney')}
         let(:clothing2) {instance_double('clothing2',:name => 'Boscovs')}
         let(:clothings) {[clothing,clothing2]}
         context "When a clothing is created" do
             describe "When trying to create a clothing with the same name" do
-                it "flashes a warning saying that a clothing with that name already exists" do
+                it "calls the new method to create the clothing" do
+                    allow(controller).to receive(:can_proceed).and_return(@current_user)
+                    expect(Clothing).to receive(:new).with(params).and_return(clothing)
+                    allow(clothing).to receive(:save)
+                    post :create, {clothing: params }
                 end
             end
-            describe "When trying to create a clothing without filling all the fields" do
-                it "flashes a warning saying that was an invalid clothing" do
-                  # expect(Clothing).to receive(:find).with(@id).and_return(clothing)
-                  # get :show, {:id => id}
-                  
-                  #expect(flash[:warning]).to eq("Invalid clothing Entry.")
+            
+        end
+    end
+    
+    describe "#update" do
+        before :each do
+            @current_user=instance_double('User', name: 'student')
+        end
+        let(:params) {{:name => "clothing"}}
+        let(:clothing) {double('clothing', params)}
+        let(:id) {'1'}
+        
+        context "When a clothing is updated" do
+            describe "When looking to update a clothing" do
+                it "calls the find method to update the clothing" do
+                    allow(controller).to receive(:can_proceed).and_return(@current_user)
+                    expect(Clothing).to receive(:find).with(id).and_return(clothing)
+                    allow(clothing).to receive(:update_attributes).with(params)
+                    get :update,  id: id, clothing: params
                 end
             end
         end

@@ -44,6 +44,8 @@ RSpec.describe HouseholdsController, type: :controller do
     end
     
     describe "#create" do
+        let(:params) {{:name => "Sams Club"}}
+        let(:household) {double('household', params)}
         let(:id) {'1'}
         let(:id2) {'2'}
         let(:household) {instance_double('household',:name => 'Sams Club')}
@@ -51,7 +53,11 @@ RSpec.describe HouseholdsController, type: :controller do
         let(:households) {[household,household2]}
         context "When a household is created" do
             describe "When trying to create a household with the same name" do
-                it "flashes a warning saying that a household with that name already exists" do
+                it "calls the new method to create the household" do
+                    allow(controller).to receive(:can_proceed).and_return(@current_user)
+                    expect(Household).to receive(:new).with(params).and_return(household)
+                    allow(household).to receive(:save)
+                    post :create, {household: params }
                 end
             end
             describe "When trying to create a household without filling all the fields" do
@@ -60,6 +66,26 @@ RSpec.describe HouseholdsController, type: :controller do
                   # get :show, {:id => id}
                   
                   #expect(flash[:warning]).to eq("Invalid household Entry.")
+                end
+            end
+        end
+    end
+    
+    describe "#update" do
+        before :each do
+            @current_user=instance_double('User', name: 'student')
+        end
+        let(:params) {{:name => "household"}}
+        let(:household) {double('household', params)}
+        let(:id) {'1'}
+        
+        context "When a household is updated" do
+            describe "When looking to update a household" do
+                it "calls the find method to update the household" do
+                    allow(controller).to receive(:can_proceed).and_return(@current_user)
+                    expect(Household).to receive(:find).with(id).and_return(household)
+                    allow(household).to receive(:update_attributes).with(params)
+                    get :update,  id: id, household: params
                 end
             end
         end

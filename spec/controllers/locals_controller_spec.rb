@@ -45,22 +45,43 @@ RSpec.describe LocalsController, type: :controller do
     end
     
     describe "#create" do
+        let(:params) {{:name => "BC Transit"}}
+        let(:local) {double('local', params)}
         let(:id) {'1'}
         let(:id2) {'2'}
-        let(:local) {instance_double('local',:name => 'BC Transit')}
+        #let(:local) {instance_double('local',:name => 'BC Transit')}
         let(:local2) {instance_double('local2',:name => 'OCCT')}
         let(:locals) {[local,local2]}
         context "When a local is created" do
             describe "When trying to create a local with the same name" do
-                it "flashes a warning saying that a local with that name already exists" do
+                it "calls the new method to create the local" do
+                    allow(controller).to receive(:can_proceed).and_return(@current_user)
+                    expect(Local).to receive(:new).with(params).and_return(local)
+                    allow(local).to receive(:save)
+                    post :create, {local: params }
                 end
             end
-            describe "When trying to create a local without filling all the fields" do
-                it "flashes a warning saying that was an invalid local" do
-                  # expect(Local).to receive(:find).with(@id).and_return(local)
-                  # get :show, {:id => id}
-                  
-                  #expect(flash[:warning]).to eq("Invalid local Entry.")
+        end
+    end
+    
+    describe "#update" do
+        before :each do
+            @current_user=instance_double('User', name: 'student')
+        end
+        let(:params) {{:name => "BC Transit"}}
+        let(:local) {double('local', params)}
+        let(:id) {'1'}
+        let(:id2) {'2'}
+        #let(:airport) {instance_double('airport',:name => 'Greater Binghamton Airport')}
+        let(:local2) {instance_double('local2',:name => 'OCCTt')}
+        let(:locals) {[local,local2]}
+        context "When a local is updated" do
+            describe "When looking to update a local" do
+                it "calls the find method to update the local" do
+                    allow(controller).to receive(:can_proceed).and_return(@current_user)
+                    expect(Local).to receive(:find).with(id).and_return(local)
+                    allow(local).to receive(:update_attributes).with(params)
+                    get :update,  id: id, local: params
                 end
             end
         end

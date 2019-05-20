@@ -1,4 +1,7 @@
 class TravelController < ApplicationController
-  def travel
+    def index
   end
-end
+  def show
+  end
+    
+end  

@@ -45,22 +45,40 @@ RSpec.describe CarrentalsController, type: :controller do
     end
     
     describe "#create" do
+        let(:params) {{:name => "Autorental America"}}
+        let(:carrental) {double('carrental', params)}
         let(:id) {'1'}
         let(:id2) {'2'}
-        let(:carrental) {instance_double('carrental',:name => 'Autorental America')}
+        #let(:carrental) {instance_double('carrental',:name => 'Autorental America')}
         let(:carrental2) {instance_double('carrental2',:name => 'Kayak')}
         let(:carrentals) {[carrental,carrental2]}
         context "When a carrental is created" do
             describe "When trying to create a carrental with the same name" do
-                it "flashes a warning saying that a carrental with that name already exists" do
+                it "calls the new method to create the carrental" do
+                    allow(controller).to receive(:can_proceed).and_return(@current_user)
+                    expect(Carrental).to receive(:new).with(params).and_return(carrental)
+                    allow(carrental).to receive(:save)
+                    post :create, {carrental: params }
                 end
             end
-            describe "When trying to create a carrental without filling all the fields" do
-                it "flashes a warning saying that was an invalid bus" do
-                  # expect(Carrental).to receive(:find).with(@id).and_return(carrental)
-                  # get :show, {:id => id}
-                  
-                  #expect(flash[:warning]).to eq("Invalid carrental Entry.")
+        end
+    end
+    
+    describe "#update" do
+        before :each do
+            @current_user=instance_double('User', name: 'student')
+        end
+        let(:params) {{:name => "carrental"}}
+        let(:carrental) {double('carrental', params)}
+        let(:id) {'1'}
+        
+        context "When a carrental is updated" do
+            describe "When looking to update a carrental" do
+                it "calls the find method to update the carrental" do
+                    allow(controller).to receive(:can_proceed).and_return(@current_user)
+                    expect(Carrental).to receive(:find).with(id).and_return(carrental)
+                    allow(carrental).to receive(:update_attributes).with(params)
+                    get :update,  id: id, carrental: params
                 end
             end
         end

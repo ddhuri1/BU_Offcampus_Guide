@@ -51,26 +51,42 @@ describe GroceriesController, type: :controller do
         before :each do
             @current_user=instance_double('User', name: 'student')
         end
+        let(:params) {{:name => "Walmart"}}
+        let(:grocery) {double('grocery', params)}
         let(:id) {'1'}
         let(:id2) {'2'}
-        let(:grocery) {instance_double('grocery',:name => 'Walmart')}
+        #let(:grocery) {instance_double('grocery',:name => 'Walmart')}
         let(:grocery2) {instance_double('grocery2',:name => 'Price Chopper')}
         let(:groceries) {[grocery,grocery2]}
         context "When a grocery is created" do
             describe "When trying to create a grocery with the same name" do
-                it "flashes a warning saying that a grocery with that name already exists" do
-                  # expect(Grocery).to receive(:find).with(@id).and_return(@grocery1)
-                  # get :show, {:id => id}
-                  
-                  #expect(flash[:warning]).to eq("#{grocery.abbrev} already exists! Please try a new one.")
+                 it "calls the new method to create the grocery" do
+                    allow(controller).to receive(:can_proceed).and_return(@current_user)
+                    expect(Grocery).to receive(:new).with(params).and_return(grocery)
+                    allow(grocery).to receive(:save)
+                    post :create, {grocery: params }
                 end
             end
-            describe "When trying to create a grocery without filling all the fields" do
-                it "flashes a warning saying that was an invalid grocery" do
-                  # expect(Grocery).to receive(:find).with(@id).and_return(@grocery1)
-                  # get :show, {:id => id}
-                  
-                  #expect(flash[:warning]).to eq("Invalid grocery Entry.")
+            
+        end
+    end
+    
+    
+    describe "#update" do
+        before :each do
+            @current_user=instance_double('User', name: 'student')
+        end
+        let(:params) {{:name => "grocery"}}
+        let(:grocery) {double('grocery', params)}
+        let(:id) {'1'}
+        
+        context "When a grocery is updated" do
+            describe "When looking to update a grocery" do
+                it "calls the find method to update the grocery" do
+                    allow(controller).to receive(:can_proceed).and_return(@current_user)
+                    expect(Grocery).to receive(:find).with(id).and_return(grocery)
+                    allow(grocery).to receive(:update_attributes).with(params)
+                    get :update,  id: id, grocery: params
                 end
             end
         end

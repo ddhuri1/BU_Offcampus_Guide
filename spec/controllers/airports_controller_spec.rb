@@ -49,22 +49,44 @@ RSpec.describe AirportsController, type: :controller do
         before :each do
             @current_user=instance_double('User', name: 'student')
         end
+        let(:params) {{:name => "Greater Binghamton Airport"}}
+        let(:airport) {double('airport', params)}
         let(:id) {'1'}
         let(:id2) {'2'}
-        let(:airport) {instance_double('airport',:name => 'Greater Binghamton Airport')}
+        #let(:airport) {instance_double('airport',:name => 'Greater Binghamton Airport')}
         let(:airport2) {instance_double('airport2',:name => 'Tri-Cities Airport')}
         let(:airports) {[airport,airport2]}
         context "When a airport is created" do
-            describe "When trying to create a airport with the same name" do
-                it "flashes a warning saying that a airport with that name already exists" do
+            describe "When looking to create a airport" do
+                it "calls the new method to create the airport" do
+                    allow(controller).to receive(:can_proceed).and_return(@current_user)
+                    expect(Airport).to receive(:new).with(params).and_return(airport)
+                    allow(airport).to receive(:save)
+                    post :create, {airport: params }
                 end
             end
-            describe "When trying to create a airport without filling all the fields" do
-                it "flashes a warning saying that was an invalid airport" do
-                  # expect(Airport).to receive(:find).with(@id).and_return(airport)
-                  # get :show, {:id => id}
-                  
-                  #expect(flash[:warning]).to eq("Invalid airport Entry.")
+        end
+            
+    end
+    
+    describe "#update" do
+        before :each do
+            @current_user=instance_double('User', name: 'student')
+        end
+        let(:params) {{:name => "Greater Binghamton Airport"}}
+        let(:airport) {double('airport', params)}
+        let(:id) {'1'}
+        let(:id2) {'2'}
+        #let(:airport) {instance_double('airport',:name => 'Greater Binghamton Airport')}
+        let(:airport2) {instance_double('airport2',:name => 'Tri-Cities Airport')}
+        let(:airports) {[airport,airport2]}
+        context "When a airport is updated" do
+            describe "When looking to update a airport" do
+                it "calls the find method to update the airport" do
+                    allow(controller).to receive(:can_proceed).and_return(@current_user)
+                    expect(Airport).to receive(:find).with(id).and_return(airport)
+                    allow(airport).to receive(:update_attributes).with(params)
+                    get :update,  id: id, airport: params
                 end
             end
         end

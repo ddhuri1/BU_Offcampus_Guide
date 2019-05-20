@@ -47,24 +47,45 @@ RSpec.describe BusesController, type: :controller do
     describe "#create" do
         let(:id) {'1'}
         let(:id2) {'2'}
-        let(:bus) {instance_double('bus',:name => 'Mega Bus')}
+        #let(:bus) {instance_double('bus',:name => 'Mega Bus')}
         let(:bus2) {instance_double('bus2',:name => 'GreyHound')}
         let(:buses) {[bus,bus2]}
+        let(:params) {{:name => "Mega Bus"}}
+        let(:bus) {double('bus', params)}
         context "When a bus is created" do
-            describe "When trying to create a bus with the same name" do
-                it "flashes a warning saying that a bus with that name already exists" do
+            describe "When trying to create a bus " do
+                
+                it "calls the new method to create the bus" do
+                    allow(controller).to receive(:can_proceed).and_return(@current_user)
+                    expect(Bus).to receive(:new).with(params).and_return(bus)
+                    allow(bus).to receive(:save)
+                    post :create, {bus: params }
                 end
+               
             end
-            describe "When trying to create a bus without filling all the fields" do
-                it "flashes a warning saying that was an invalid bus" do
-                  # expect(Bus).to receive(:find).with(@id).and_return(bus)
-                  # get :show, {:id => id}
-                  
-                  #expect(flash[:warning]).to eq("Invalid bus Entry.")
+        end
+    end
+    
+    describe "#update" do
+        before :each do
+            @current_user=instance_double('User', name: 'student')
+        end
+        let(:params) {{:name => "bus"}}
+        let(:bus) {double('bus', params)}
+        let(:id) {'1'}
+        
+        context "When a bus is updated" do
+            describe "When looking to update a bus" do
+                it "calls the find method to update the bus" do
+                    allow(controller).to receive(:can_proceed).and_return(@current_user)
+                    expect(Bus).to receive(:find).with(id).and_return(bus)
+                    allow(bus).to receive(:update_attributes).with(params)
+                    get :update,  id: id, bus: params
                 end
             end
         end
     end
+    
     
     describe "#edit" do
         let(:id) {'1'}

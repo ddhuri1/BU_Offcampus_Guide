@@ -12,15 +12,15 @@ And "I click on the {string}" do |string|
 end
 
 When "I click {string}" do |string|
-    if(string == "Local" || string == "Bus" || string == "Airport" || string == "Car Rental")
+    if(string == "Local" || string == "Bus" || string == "Airports" || string == "Car Rentals")
         visit travel_path
         click_link(string)
-    end
-    if(string == "Grocery" || string == "Medical" || string == "Household" || string == "Clothing")
+    elsif(string == "Grocery" || string == "Medical" || string == "Household" || string == "Clothing")
         visit essentials_path
-        click_link(string);
+        click_link(string)
+    else
+        click_link(string)
     end
-    
 end
 
 # When("I am on Travel Page") do
